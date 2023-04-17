@@ -1,0 +1,36 @@
+.landing-page {
+     background-image: url("https://www.bing.com/th/id/OGC.3ee5518deeaf55b3ee0bcc2ccd4493d3?pid=1.7&rurl=https%3a%2f%2fi.pinimg.com%2foriginals%2ff2%2f2a%2fe4%2ff22ae471cf61de9a14fe418279d4c87e.gif&ehk=RIMPjG1kN7lKtT9ci6TcOA4Ed9glG1j2IErp2Skjios%3d.gif");
+      background-size: cover;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+  }
+  
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+  
+  p {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  button {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+    background-color: #6c63ff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #5a4bd1;
+  }

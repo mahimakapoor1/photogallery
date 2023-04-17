@@ -1,0 +1,190 @@
+
+  form {
+	margin: 1rem 1rem 1rem 1rem;
+	display: grid;
+	gap: 10px;
+}
+
+@media only screen and (min-width: 960px) {
+	form {
+		grid-template-columns: 5fr 1fr 1fr;
+	}
+}
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+  }
+  
+  header button {
+	margin-left: auto;
+  }
+form input {
+	padding: 14px;
+	border: 3px solid rgb(225, 225, 225);
+	border-radius: 10px;
+	box-sizing: border-box;
+	font-size: 32px;
+}
+
+form button {
+	border: none;
+	border-radius: 10px;
+	font-size: 32px;
+	padding: 16px;
+}
+
+form button[type='button'] {
+	background-color: rgb(254, 80, 80);
+}
+
+.img {
+	width: 100%;
+	height: 100%;
+	object-fit:cover;
+	
+}
+
+.image-grid {
+	display: grid;
+	gap: 0.7rem;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 2fr));
+	margin: 1rem;
+}
+/* 
+.footer {
+	display: flex;
+	justify-content: center;
+}
+
+.footer button {
+	font-size: 36px;
+	border-radius: 10px;
+	border: none;
+	padding: 18px;
+	margin: 3rem 0 3rem 0;
+
+} */
+
+  img:hover {
+	transform: scale(1.05);
+	box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
+  }
+  
+  .image-caption {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	background-color: rgba(0, 0, 0, 0.5);
+	color: white;
+	padding: 0.5rem;
+	font-size: 1rem;
+  }
+.App.dark {
+	background-image: linear-gradient(to bottom right, #60174c, #1c2261);
+		background-size: 400% 400%;
+		animation: gradient 4s ease infinite;
+	background-color: #1c1c1c;
+	color:white
+	  }
+	  
+	  /* Define the animation */
+	  @keyframes gradient {
+		0% {
+		  background-position: 0% 50%;
+		}
+		50% {
+		  background-position: 100% 50%;
+		}
+		100% {
+		  background-position: 0% 50%;
+		}
+	 }
+	h1{
+		font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+	}
+	body {
+		background-image: linear-gradient(to bottom right, #f15bd5, #66bff0);
+		background-size: 400% 400%;
+		animation: gradient 4s ease infinite;
+	  }
+	  
+	  /* Define the animation */
+	  @keyframes gradient {
+		0% {
+		  background-position: 0% 50%;
+		}
+		50% {
+		  background-position: 100% 50%;
+		}
+		100% {
+		  background-position: 0% 50%;
+		}
+	  }
+	  .btn {
+		display: inline-block;
+		padding: 1rem 2rem;
+		background-color: #f68084;
+		color: #fff;
+		text-transform: uppercase;
+		font-weight: 600;
+		border-radius: 5px;
+		transition: all 0.2s ease-in-out;
+	  }
+	  
+	  .btn:hover {
+		background-color: #ed3d3d;
+		cursor: pointer;
+	  }
+	  .loading-spinner {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	  }
+	  
+	  .loading-spinner .lds-ring {
+		display: inline-block;
+		position: relative;
+		width: 80px;
+		height: 80px;
+	  }
+	  
+	  .loading-spinner .lds-ring div {
+		box-sizing: border-box;
+		display: block;
+		position: absolute;
+		width: 64px;
+		height: 64px;
+		margin: 8px;
+		border: 8px solid #fff;
+		border-radius: 50%;
+		animation: lds-ring 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+		border-color: #fff transparent transparent transparent;
+	  }
+	  
+	  .loading-spinner .lds-ring div:nth-child(1) {
+		animation-delay: -0.45s;
+	  }
+	  
+	  .loading-spinner .lds-ring div:nth-child(2) {
+		animation-delay: -0.3s;
+	  }
+	  
+	  .loading-spinner .lds-ring div:nth-child(3) {
+		animation-delay: -0.15s;
+	  }
+	  
+	  @keyframes lds-ring {
+		0% {
+		  transform: rotate(0deg);
+		}
+		100% {
+		  transform: rotate(360deg);
+		}
+	  }
+	 
+	  
+	 
