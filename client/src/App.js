@@ -38,12 +38,15 @@ const App = () => {
   const handleLoadMoreButtonClick = async () => {
     setIsLoading(true);
     const responseJson = await getImages(nextCursor);
-    setImageList((currentImageList) => [      ...currentImageList,      ...responseJson.resources,    ]);
+    setImageList(currentImageList => [
+      ...currentImageList,
+      ...responseJson.resources,
+    ]);
     setNextCursor(responseJson.next_cursor);
     setIsLoading(false);
   };
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async event => {
     event.preventDefault();
     setIsLoading(true);
     const responseJson = await searchImages(searchValue, nextCursor);
@@ -65,8 +68,26 @@ const App = () => {
     setIsDarkMode(!isDarkMode);
   };
 
-  
+  const handleImageClick = event => {
+    const img = event.target;
+    if (img.classList.contains("img")) {
+      img.classList.toggle("zoomed");
+      if (img.classList.contains("zoomed")) {
+        document.addEventListener("keydown", handleEscapeKey);
+      } else {
+        document.removeEventListener("keydown", handleEscapeKey);
+      }
+    }
+  };
 
+  const handleEscapeKey = event => {
+    if (event.key === "Escape") {
+      const img = document.querySelector(".img.zoomed");
+      img.classList.remove("zoomed");
+      toggleDarkMode();
+      document.removeEventListener("keydown", handleEscapeKey);
+    }
+  };
   return (
     <div className={`App ${isDarkMode ? "dark" : ""}`}>
       <header>
@@ -88,28 +109,35 @@ const App = () => {
         </button>
       </form>
       {isLoading ? (
-<div className="loading-spinner">
-<div className="lds-ring">
-<div></div>
-<div></div>
-<div></div>
-<div></div>
-</div>
-</div>
-) : (
-<div className="image-grid">
-{imageList.map((image) => (
-<div key={image.public_id} className="image-container">
-<img className="img"src={image.url} alt={image.public_id} />
-</div>
-))}
-</div>
-)}
-{nextCursor && (
-<button type="button" onClick={handleLoadMoreButtonClick}>
-</button>
-)}
-</div>
-);
+        <div className="loading-spinner">
+          <div className="lds-ring">
+            <div></div>
+          </div>
+        </div>
+      ) : (
+        <>
+          <div className="image-grid">
+            {imageList.map((image) => (
+              <div key={image.public_id} className="image-container">
+                <img
+  className="img"
+  src={image.url}
+  alt={image.public_id}
+  onClick={handleImageClick}
+/> 
+
+              </div>
+            ))}
+          </div>
+          {nextCursor && (
+            <button type="button" onClick={handleLoadMoreButtonClick}>
+              Load More
+            </button>
+          )}
+        </>
+      )}
+    </div>
+  );
 };
 export default App;
+
